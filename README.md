@@ -33,33 +33,28 @@ hudPlugin.show(options);
 
 ## Options
 
-### title - iOS, Android
-The title for the panel.
-
-Type: String
-
-Default: `Title`
-
-### description - iOS, Android
-The description for the panel.
+### text - iOS, Android
+The text on the HUD.
 
 Type: String
 
 Default: ``
 
-### positiveButtonText - iOS, Android
-Label for positive button.
+### icon - iOS, Android
+The image resource name (need to include '.png')
 
 Type: String
 
-Default: `Yes`
+Default: ``
 
-### negativeButtonText - iOS, Android
-Label for negative button.
+Example: `success.png`
 
-Type: String
+### timeOut - iOS, Android
+Time out to close the HUD (in ms). 0 keeps the hud visible until hide is called.
 
-Default: `No`
+Type: Integer
+
+Default: `0`
 
 ## Requirements
 - PhoneGap 3.0 or newer / Cordova 3.0 or newer
