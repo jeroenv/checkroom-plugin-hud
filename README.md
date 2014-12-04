@@ -19,23 +19,16 @@ phonegap local plugin add https://francescoverheye@bitbucket.org/francescoverhey
 ## Usage
 
 ```js
-var title = "My title";
-var description = "My description";
-var positiveButtonText = "Yes!";
-var negativeButtonText = "No!";
+var text = 'success';
+var icon = 'success.png';
+var timeOut = 3000;
             
 var options = {
-    title: title,
-    description: description,
-    positiveButtonText: positiveButtonText,
-    negativeButtonText: negativeButtonText
+    text: text,
+    icon: icon,
+    timeOut: timeOut
 };
-
-confirmPanelPlugin.show(options, 
-    function(result){
-        alert("result " + JSON.stringify(result));  
-    });
-}
+hudPlugin.show(options);
 ```
 
 ## Options
