@@ -25,6 +25,11 @@
         </js-module>
     
         <source-file src="src/android/HUDPlugin.java" target-dir="src/com/checkroom/plugin/hud" />
+        <source-file src="src/android/HUDDialog.java" target-dir="src/com/checkroom/plugin/hud" />
+
+
+        <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
+        <source-file src="src/android/gen/com/cheqroom/plugin/hud/R.java" target-dir="gen/com/checkroom/plugin/hud" />
         
     </platform>
     <!-- ios -->
@@ -42,6 +47,8 @@
 
 	    <header-file src="src/ios/HUDPlugin.h" />
 	    <source-file src="src/ios/HUDPlugin.m" />
+        <header-file src="src/ios/MBProgressHUD.h" />
+        <source-file src="src/ios/MBProgressHUD.m" />
 
     </platform>
 

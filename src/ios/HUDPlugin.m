@@ -7,12 +7,16 @@
 //
 
 #import "HUDPlugin.h"
+#import "MBProgressHUD.h"
 
 @implementation HUDPlugin{
-    NSString *_title;
-    NSString *_description;
-    NSString *_positiveButtonText;
-    NSString *_negativeButtonText;
+    NSString *_text;
+    NSString *_icon;
+    NSInteger _timeOut;
+    
+    MBProgressHUD *_hud;
+    
+    NSTimer *_closeHudTimer;
 }
 
 - (void)show:(CDVInvokedUrlCommand*)command
@@ -23,84 +27,100 @@
     
     [self readParams:options];
     
-    [self showAlertView];
+    [self showHUD];
+}
+
+- (void)hide:(CDVInvokedUrlCommand*)command
+{
+    [self hideHud];
+}
+
+- (void)isShowing:(CDVInvokedUrlCommand*)command
+{
+    [self jsSendVisibility];
 }
 
 -(void) setDefaults
 {
-    _title = @"Title";
-    _description = nil;
-    _positiveButtonText = @"Yes";
-    _negativeButtonText = @"No";
+    _text = @"";
+    _icon = @"";
+    _timeOut = 0;
 }
 
 -(void) readParams:(NSDictionary*) params
 {
-    if([params objectForKey:@"title"])
+    if([params objectForKey:@"text"])
     {
-        _title = [params objectForKey:@"title"];
+        _text = [params objectForKey:@"text"];
     }
-    if([params objectForKey:@"description"])
+    if([params objectForKey:@"icon"])
     {
-        _description = [params objectForKey:@"description"];
+        _icon = [params objectForKey:@"icon"];
     }
-    if([params objectForKey:@"positiveButtonText"])
+    if([params objectForKey:@"timeOut"])
     {
-        _positiveButtonText = [params objectForKey:@"positiveButtonText"];
-    }
-    if([params objectForKey:@"negativeButtonText"])
-    {
-        _negativeButtonText = [params objectForKey:@"negativeButtonText"];
+        _timeOut = [[params objectForKey:@"timeOut"] integerValue];
     }
 }
 
--(void) showAlertView
+-(void) showHUD
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:_title
-                                                   message:_description
-                                                  delegate:self
-                                         cancelButtonTitle:_negativeButtonText
-                                         otherButtonTitles:_positiveButtonText, nil];
-    [alert show];
+    [self showHudWithImage:_icon andText:_text];
 }
 
-#pragma mark UIActionSheetDelegate
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void) showHudWithImage:(NSString*)imageName andText:(NSString*)text
 {
-    if (buttonIndex == 0)
+    if (_hud == nil)
     {
-        // negativeButton
-        [self jsActionSelected:NO];
+        _hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+    };
+    
+    if(![imageName isEqualToString:@""])
+    {
+        _hud.mode = MBProgressHUDModeCustomView;
+        _hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     }
-    else
+    
+    if(text && ![text isEqualToString:@""])
     {
-        // positiveButton
-        [self jsActionSelected:YES];
+        _hud.labelText = text;
+    }
+    
+    if(_timeOut != 0 && _timeOut > 0){
+        _closeHudTimer = [NSTimer  scheduledTimerWithTimeInterval:_timeOut / 1000
+                                                           target:self
+                                                         selector:@selector(hideHud)
+                                                         userInfo:nil
+                                                          repeats:NO];
+    }
+}
+
+-(void) hideHud
+{
+    if (_hud != nil)
+    {
+        [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        _hud = nil;
+    }
+    if(_closeHudTimer)
+    {
+        [_closeHudTimer invalidate];
+        _closeHudTimer = nil;
     }
 }
 
 #pragma mark - JS API
--(void) jsActionSelected:(BOOL)isPositiveButton
+-(void) jsSendVisibility
 {
-    NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
-    if(isPositiveButton)
+    NSString* jsCallback;
+    if([_hud isHidden] || _hud == nil)
     {
-        [resultDic setValue:@"positiveButton" forKey:@"action"];
-        [resultDic setValue:_positiveButtonText forKey:@"buttonText"];
+        jsCallback= @"hudPlugin._isShowing(\"invisible\");";
     }
     else
     {
-        [resultDic setValue:@"negativeButton" forKey:@"action"];
-        [resultDic setValue:_negativeButtonText forKey:@"buttonText"];
+        jsCallback= @"hudPlugin._isShowing(\"visible\");";
     }
-
-    NSError * err;
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:resultDic options:0 error:&err];
-    NSString * result = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    result = [result stringByReplacingOccurrencesOfString:@"\"" withString:@"&#34;"];
-    
-    NSString* jsCallback = [NSString stringWithFormat:@"confirmPanelPlugin._actionSelected(\"%@\");", result];
     [self.commandDelegate evalJs:jsCallback];
 }
 

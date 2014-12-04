@@ -9,38 +9,58 @@ function HUDPlugin() {
 /**
  * show - true to show the ad, false to hide the ad
  */
-HUDPlugin.prototype.show = function(options, cb) {
-  
-	var defaults = {
-        text: '',
-        icon: '',
-        timeOut: 0
-    };
 
-	for (var key in defaults) {
-		if (typeof options[key] !== "undefined") {
-			defaults[key] = options[key];
+ HUDPlugin.prototype = {
+
+	show: function(options) {
+		var defaults = {
+        	text: '',
+        	icon: '',
+        	timeOut: 0
+    	};
+
+		for (var key in defaults) {
+			if (typeof options[key] !== "undefined") {
+				defaults[key] = options[key];
+			}
 		}
+  
+		cordova.exec(null, 
+			null, 
+			"HUDPlugin", 
+			"show",
+			[defaults]);
+	},
+
+	hide: function() {
+		var defaults = {};
+
+		cordova.exec(null, 
+      		null, 
+      		"HUDPlugin", 
+      		"hide",
+      		[defaults]);
+	},
+
+	isShowing:function(cb){
+		
+		var defaults = {};
+
+		var callback = function(visibility) {
+			if(visibility == 'visible'){
+      			cb({status:'success', data: true});  
+    		} else{
+      			cb({status:'success', data: false});  
+    		}
+		};
+
+		cordova.exec(callback, 
+      		null, 
+      		"HUDPlugin", 
+      		"isShowing",
+      		[defaults]);
 	}
 
-	//this._callback = cb;
-
-	var callback = function(message) {
-		var m = '' + message;
-		if(m == 'cancelled'){
-			cb({status: 'cancelled'});
-		} else{
-			m = m.replace(/&#34;/g, '"');
-			cb({status:'success', data: JSON.parse(m)});
-		}
-	}
-  
-	cordova.exec(callback, 
-		null, 
-		"HUDPlugin", 
-		defaults.text,
-		[defaults]
-	);
 };
 
 var hud = new HUDPlugin();

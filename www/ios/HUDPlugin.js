@@ -13,7 +13,7 @@ function HUDPlugin() {
 /**
  * show - true to show the ad, false to hide the ad
  */
-HUDPlugin.prototype.show = function(options, cb) {
+HUDPlugin.prototype.show = function(options) {
 
     var defaults = {
         text : '',
@@ -25,7 +25,6 @@ HUDPlugin.prototype.show = function(options, cb) {
         if (typeof options[key] !== "undefined")
             defaults[key] = options[key];
     }
-    this._callback = cb;
 
     exec(null, 
       null, 
@@ -35,11 +34,33 @@ HUDPlugin.prototype.show = function(options, cb) {
     );
 };
 
-HUDPlugin.prototype._actionSelected = function(json) {
-    json = json.replace(/&#34;/g, '"');
-    if (this._callback)
-        this._callback({status:'success', data: JSON.parse(json)});  
-}
+HUDPlugin.prototype.hide = function() {
+    exec(null, 
+      null, 
+      "HUDPlugin", 
+      "hide",
+      null);
+};
+
+
+HUDPlugin.prototype.isShowing = function(cb) {
+    this._callback = cb;
+    exec(null, 
+      null, 
+      "HUDPlugin", 
+      "isShowing",
+      null
+    );
+};
+
+HUDPlugin.prototype._isShowing = function(visibility) {
+    if(visibility == 'visible'){
+      this._callback({status:'success', data: true});  
+    } else{
+      this._callback({status:'success', data: false});  
+    }
+};
+
 
 var hudPlugin = new HUDPlugin();
 module.exports = hudPlugin;
