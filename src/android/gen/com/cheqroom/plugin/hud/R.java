@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.hud;
+package com.checkroom.plugin.hud;
 
 public final class R {
     public static final class attr {
