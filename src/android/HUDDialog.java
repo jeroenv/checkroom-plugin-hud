@@ -66,6 +66,10 @@ public class HUDDialog extends Dialog {
 			pbLoading.setVisibility(View.VISIBLE);
 		} else {
 			pbLoading.setVisibility(View.INVISIBLE);
+
+			mDrawableResourceName = mDrawableResourceName.replace(".png", "");
+			ivIcon.setImageResource(getIdFromProjectsRFile(
+					RESOURCE_TYPE_DRAWABLE, mDrawableResourceName));
 		}
 	}
 
