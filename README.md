@@ -19,16 +19,53 @@ phonegap local plugin add https://francescoverheye@bitbucket.org/francescoverhey
 ## Usage
 
 ```js
-var text = 'success';
-var icon = 'success.png';
-var timeOut = 3000;
+function showSuccessHud() {
+    var text = 'success';
+    var icon = 'success.png';
+    var timeOut = 3000;
             
-var options = {
-    text: text,
-    icon: icon,
-    timeOut: timeOut
-};
-hudPlugin.show(options);
+    var options = {
+        text: text,
+        icon: icon,
+        timeOut: timeOut
+    };
+    hudPlugin.show(options);
+}
+function hideHud() {
+    hudPlugin.hide();
+}
+function askVisibility(){
+    hudPlugin.isShowing( 
+        function(result){
+            alert("result " + JSON.stringify(result));  
+    });
+}
+function showErrorHud() {
+    var icon = 'error.png';
+    var timeOut = 0;
+            
+    var options = {
+        icon: icon,
+        timeOut: timeOut
+    };
+
+    hudPlugin.show(options);
+}
+function showLoadingHud() {
+    var options = {};
+
+    hudPlugin.show(options);
+
+    var myVar = setTimeout(hideHud, 1000);
+}
+function showLoadingHud2() {
+    var options = {};
+
+    hudPlugin.show(options);
+
+    var myVar = setTimeout(askVisibility, 1000);
+    var myVar2 = setTimeout(hideHud, 5000);
+}
 ```
 
 ## Options
