@@ -3,14 +3,9 @@
  * Constructor
  */
 function HUDPlugin() {
-  //this._callback;
 }
 
-/**
- * show - true to show the ad, false to hide the ad
- */
-
- HUDPlugin.prototype = {
+HUDPlugin.prototype = {
 
 	show: function(options) {
 		var defaults = {

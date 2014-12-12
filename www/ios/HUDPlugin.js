@@ -1,7 +1,3 @@
-/**
-  Phonegap HUD Plugin
-*/
-
 var exec = require('cordova/exec');
 /**
  * Constructor
@@ -10,9 +6,6 @@ function HUDPlugin() {
     this._callback;
 }
 
-/**
- * show - true to show the ad, false to hide the ad
- */
 HUDPlugin.prototype.show = function(options) {
 
     var defaults = {
@@ -22,16 +15,16 @@ HUDPlugin.prototype.show = function(options) {
     };
 
     for (var key in defaults) {
-        if (typeof options[key] !== "undefined")
-            defaults[key] = options[key];
+        if (typeof options[key] !== "undefined"){
+          defaults[key] = options[key];
+        }
     }
 
     exec(null, 
       null, 
       "HUDPlugin", 
       "show",
-      [defaults]
-    );
+      [defaults]);
 };
 
 HUDPlugin.prototype.hide = function() {
@@ -49,8 +42,7 @@ HUDPlugin.prototype.isShowing = function(cb) {
       null, 
       "HUDPlugin", 
       "isShowing",
-      null
-    );
+      null);
 };
 
 HUDPlugin.prototype._isShowing = function(visibility) {

@@ -1,6 +1,6 @@
 //
 //  HUDPlugin.m
-//  HelloHUD
+//  HelloHud
 //
 //  Created by Francesco Verheye on 03/12/14.
 //

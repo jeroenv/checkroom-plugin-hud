@@ -1,6 +1,6 @@
 //
 //  HUDPlugin.h
-//  HelloConfirm
+//  HelloHud
 //
 //  Created by Francesco Verheye on 03/12/14.
 //
