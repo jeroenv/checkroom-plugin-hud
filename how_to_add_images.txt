@@ -1,0 +1,17 @@
+Add images as resources in Android:
+
+- add the .png files in /platforms/android/res/drawable
+- must be .png
+- example used images with a 74x74 dimension
+
+
+Add images as resources in iOS:
+
+1. open the project in Xcode
+2. File - New - File
+3. choose iOS Resource on the left
+4. choose 'Asset Catalog' on the right, press next
+5. Save as: 'Images'
+6. save in /PROJECT_NAME/Resources
+7. add your images (png files) to 'Imagex.xcassets'
+
