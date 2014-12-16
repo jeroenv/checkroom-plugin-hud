@@ -96,3 +96,20 @@ Default: `0`
 ## Requirements
 - PhoneGap 3.0 or newer / Cordova 3.0 or newer
 - Android 2.3.1 or newer / iOS 5 or newer
+
+
+## How to add image to both platforms
+
+### Android
+- add the .png files in /platforms/android/res/drawable
+- must be .png
+- example used images with a 74x74 dimension
+
+### iOS
+1. open the project in Xcode
+2. File - New - File
+3. choose iOS Resource on the left
+4. choose 'Asset Catalog' on the right, press next
+5. Save as: 'Images'
+6. save in /PROJECT_NAME/Resources
+7. add your images (png files) to 'Imagex.xcassets'
