@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.checkroom.plugin.hud"
-        version="0.4.0">
+        version="0.4.1">
 
     <name>HUDPlugin</name>
 	
