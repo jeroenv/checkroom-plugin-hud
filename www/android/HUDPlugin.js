@@ -65,6 +65,6 @@ module.exports = hud;
 if (!window.plugins) {
     window.plugins = {};
 }
-if (!window.plugins.hud) {
-    window.plugins.hud = hud;
+if (!window.plugins.hudPlugin) {
+    window.plugins.hudPlugin = hud;
 }
