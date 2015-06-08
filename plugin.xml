@@ -29,8 +29,8 @@
 
 
         <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
-        <resource-file src="src/android/res/drawable/success.png" target-dir="res/drawable" />
-        <resource-file src="src/android/res/drawable/error.png" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable/success.png" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable/error.png" target-dir="res/drawable" />
     </platform>
     <!-- ios -->
     <platform name="ios">
