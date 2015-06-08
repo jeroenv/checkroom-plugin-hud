@@ -29,8 +29,12 @@
 
 
         <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
-        <source-file src="src/android/res/drawable/success.png" target-dir="res/drawable" />
-        <source-file src="src/android/res/drawable/error.png" target-dir="res/drawable" />
+        <source-file src="src/android/res/drawable-ldpi/success.png" target-dir="res/drawable-ldpi" />
+        <source-file src="src/android/res/drawable-ldpi/error.png" target-dir="res/drawable-ldpi" />
+        <source-file src="src/android/res/drawable-mdpi/success.png" target-dir="res/drawable-mdpi" />
+        <source-file src="src/android/res/drawable-mdpi/error.png" target-dir="res/drawable-mdpi" />
+        <source-file src="src/android/res/drawable-hdpi/success.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/res/drawable-hdpi/error.png" target-dir="res/drawable-hdpi" />
     </platform>
     <!-- ios -->
     <platform name="ios">
