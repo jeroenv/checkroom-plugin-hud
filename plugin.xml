@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.checkroom.plugin.hud"
-        version="0.4.3">
+        version="0.4.4">
 
     <name>HUDPlugin</name>
 	
@@ -28,18 +28,14 @@
         <source-file src="src/android/HUDDialog.java" target-dir="src/com/checkroom/plugin/hud" />
 
         <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
-        <source-file src="src/android/res/drawable-ldpi/success.png" target-dir="res/drawable-ldpi" />
-        <source-file src="src/android/res/drawable-ldpi/error.png" target-dir="res/drawable-ldpi" />
-        <source-file src="src/android/res/drawable-mdpi/success.png" target-dir="res/drawable-mdpi" />
-        <source-file src="src/android/res/drawable-mdpi/error.png" target-dir="res/drawable-mdpi" />
-        <source-file src="src/android/res/drawable-hdpi/success.png" target-dir="res/drawable-hdpi" />
-        <source-file src="src/android/res/drawable-hdpi/error.png" target-dir="res/drawable-hdpi" />        
-        <source-file src="src/android/res/drawable-xhdpi/success.png" target-dir="res/drawable-xhdpi" />
-        <source-file src="src/android/res/drawable-xhdpi/error.png" target-dir="res/drawable-xhdpi" />        
-        <source-file src="src/android/res/drawable-xxhdpi/success.png" target-dir="res/drawable-xxhdpi" />
-        <source-file src="src/android/res/drawable-xxhdpi/error.png" target-dir="res/drawable-xxhdpi" />        
-        <source-file src="src/android/res/drawable-xxxhdpi/success.png" target-dir="res/drawable-xxxhdpi" />
-        <source-file src="src/android/res/drawable-xxxhdpi/error.png" target-dir="res/drawable-xxxhdpi" />
+        <source-file src="src/android/res/drawable-small/success.png" target-dir="res/drawable-small" />
+        <source-file src="src/android/res/drawable-small/error.png" target-dir="res/drawable-small" />
+        <source-file src="src/android/res/drawable-normal/success.png" target-dir="res/drawable-normal" />
+        <source-file src="src/android/res/drawable-normal/error.png" target-dir="res/drawable-normal" />
+        <source-file src="src/android/res/drawable-large/success.png" target-dir="res/drawable-large" />
+        <source-file src="src/android/res/drawable-large/error.png" target-dir="res/drawable-large" />        
+        <source-file src="src/android/res/drawable-xlarge/success.png" target-dir="res/drawable-xlarge" />
+        <source-file src="src/android/res/drawable-xlarge/error.png" target-dir="res/drawable-xlarge" />  
     </platform>
     <!-- ios -->
     <platform name="ios">
