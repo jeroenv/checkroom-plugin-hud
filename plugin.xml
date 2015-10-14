@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.checkroom.plugin.hud"
-        version="0.4.2">
+        version="0.4.3">
 
     <name>HUDPlugin</name>
 	
@@ -27,14 +27,19 @@
         <source-file src="src/android/HUDPlugin.java" target-dir="src/com/checkroom/plugin/hud" />
         <source-file src="src/android/HUDDialog.java" target-dir="src/com/checkroom/plugin/hud" />
 
-
         <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
         <source-file src="src/android/res/drawable-ldpi/success.png" target-dir="res/drawable-ldpi" />
         <source-file src="src/android/res/drawable-ldpi/error.png" target-dir="res/drawable-ldpi" />
         <source-file src="src/android/res/drawable-mdpi/success.png" target-dir="res/drawable-mdpi" />
         <source-file src="src/android/res/drawable-mdpi/error.png" target-dir="res/drawable-mdpi" />
         <source-file src="src/android/res/drawable-hdpi/success.png" target-dir="res/drawable-hdpi" />
-        <source-file src="src/android/res/drawable-hdpi/error.png" target-dir="res/drawable-hdpi" />
+        <source-file src="src/android/res/drawable-hdpi/error.png" target-dir="res/drawable-hdpi" />        
+        <source-file src="src/android/res/drawable-xhdpi/success.png" target-dir="res/drawable-xhdpi" />
+        <source-file src="src/android/res/drawable-xhdpi/error.png" target-dir="res/drawable-xhdpi" />        
+        <source-file src="src/android/res/drawable-xxhdpi/success.png" target-dir="res/drawable-xxhdpi" />
+        <source-file src="src/android/res/drawable-xxhdpi/error.png" target-dir="res/drawable-xxhdpi" />        
+        <source-file src="src/android/res/drawable-xxxhdpi/success.png" target-dir="res/drawable-xxxhdpi" />
+        <source-file src="src/android/res/drawable-xxxhdpi/error.png" target-dir="res/drawable-xxxhdpi" />
     </platform>
     <!-- ios -->
     <platform name="ios">
