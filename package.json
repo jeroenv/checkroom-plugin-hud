@@ -1,0 +1,37 @@
+{
+    "license": "Apache-2.0",
+    "engines": [
+        {
+            "version": ">=4.0",
+            "name": "cordova-android"
+        },
+        {
+            "version": ">=3.9.2",
+            "name": "cordova-ios"
+        }
+    ],
+    "name": "com.checkroom.plugin.hud",
+    "repository": {
+        "url": "git+https://github.com/jeroenv/checkroom-plugin-hud.git",
+        "type": "git"
+    },
+    "author": "CHEQROOM",
+    "bugs": {
+        "url": "https://github.com/jeroenv/checkroom-plugin-hud/issues"
+    },
+    "version": "0.4.4",
+    "keywords": [
+        "ecosystem:cordova",
+        "cordova-ios",
+        "cordova-android"
+    ],
+    "cordova": {
+        "platforms": [
+            "ios",
+            "android"
+        ],
+        "id": "com.checkroom.plugin"
+    },
+    "homepage": "https://github.com/jeroenv/checkroom-plugin-hud#readme",
+    "description": "HUD plugin"
+}
