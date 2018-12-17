@@ -27,8 +27,10 @@
         <source-file src="src/android/HUDPlugin.java" target-dir="src/com/checkroom/plugin/hud" />
         <source-file src="src/android/HUDDialog.java" target-dir="src/com/checkroom/plugin/hud" />
 
-        <resource-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
-        <resource-file src="src/android/res/drawable-small/success.png" target="res/drawable-ldpi/success.png" />
+        <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
+        
+	<!--  drawable src/android/resources -->
+	<resource-file src="src/android/res/drawable-small/success.png" target="res/drawable-ldpi/success.png" />
         <resource-file src="src/android/res/drawable-small/error.png" target="res/drawable-ldpi/error.png" />
         <resource-file src="src/android/res/drawable-normal/success.png" target="res/drawable-mdpi/success.png" />
         <resource-file src="src/android/res/drawable-normal/error.png" target="res/drawable-mdpi/error.png" />
