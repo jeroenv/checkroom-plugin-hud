@@ -28,14 +28,14 @@
         <source-file src="src/android/HUDDialog.java" target-dir="src/com/checkroom/plugin/hud" />
 
         <source-file src="src/android/res/layout/dialog_hud.xml" target-dir="res/layout" />
-        <source-file src="src/android/res/drawable-small/success.png" target-dir="res/drawable-ldpi" />
-        <source-file src="src/android/res/drawable-small/error.png" target-dir="res/drawable-ldpi" />
-        <source-file src="src/android/res/drawable-normal/success.png" target-dir="res/drawable-mdpi" />
-        <source-file src="src/android/res/drawable-normal/error.png" target-dir="res/drawable-mdpi" />
-        <source-file src="src/android/res/drawable-large/success.png" target-dir="res/drawable-hdpi" />
-        <source-file src="src/android/res/drawable-large/error.png" target-dir="res/drawable-hdpi" />        
-        <source-file src="src/android/res/drawable-xlarge/success.png" target-dir="res/drawable-xhdpi" />
-        <source-file src="src/android/res/drawable-xlarge/error.png" target-dir="res/drawable-xhdpi" />  
+        <source-file src="src/android/res/drawable-small/success.png" target="res/drawable-ldpi/success.png" />
+        <source-file src="src/android/res/drawable-small/error.png" target="res/drawable-ldpi/error.png" />
+        <source-file src="src/android/res/drawable-normal/success.png" target="res/drawable-mdpi/success.png" />
+        <source-file src="src/android/res/drawable-normal/error.png" target="res/drawable-mdpi/error.png" />
+        <source-file src="src/android/res/drawable-large/success.png" target="res/drawable-hdpi/success.png" />
+        <source-file src="src/android/res/drawable-large/error.png" target="res/drawable-hdpi/error.png" />        
+        <source-file src="src/android/res/drawable-xlarge/success.png" target="res/drawable-xhdpi/success.png" />
+        <source-file src="src/android/res/drawable-xlarge/error.png" target="res/drawable-xhdpi/error.png" />  
     </platform>
     <!-- ios -->
     <platform name="ios">
